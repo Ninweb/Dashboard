@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableUsuarios extends Migration
+class CreateSalariosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,13 @@ class CreateTableUsuarios extends Migration
      */
     public function up()
     {
+        //
+        Schema::create('Salarios', function(Blueprint $table){
 
-        Schema::create('Usuarios', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('correo');
-            $table->string('contraseña');
-            $table->string('acceso_usuario');
-
-
-            $table->rememberToken();
+            $table->integer('salario_base');
+            $table->integer('salario_ticket');
+            $table->integer('salario_seguro');
             $table->timestamps();
         });
     }

@@ -20,3 +20,12 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::resource('usuarios','UsuarioController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
+
+Route::resource('departamentos','DepartamentoController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+
+Route::resource('salarios','SalarioController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
