@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateSalariosTable extends Migration
+class TableDirecciones extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,17 @@ class CreateSalariosTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('Salarios', function(Blueprint $table){
-
+        Schema::create('Direcciones',function(Blueprint $table){
             $table->increments('id');
-            $table->integer('salario_base');
-            $table->integer('salario_ticket');
-            $table->integer('salario_seguro');
+            $table->integer('id_persona')->unsigned();
+            $table->string('parroquia');
+            $table->string('municio');
+            $table->string('alcaldia');
+            $table->string('ciudad');
+            $table->string('zona');
+
+            $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade');
+
             $table->timestamps();
         });
     }

@@ -19,7 +19,24 @@ class personaController extends Controller
     }
 
     public function store(Request $request){
+        try{
 
+
+
+            $usuario = new Usuario([
+                'correo'=>$request->input('correo'),
+                'contraseña'=>bcrypt( $request->input('contraseña')),
+                'acceso_usuario'=>$request->input('acceso_usuario')
+            ]);
+            $usuario->save();
+            return response()->json([
+                'status'=>'true',
+                'Perfecto Gracias'
+            ],200);
+        }catch (\Exception $e){
+            Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
+            return response('Algo salio mal',500);
+        }
 
     }
 

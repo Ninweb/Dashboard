@@ -11,6 +11,6 @@ class Salario extends Model
     use Notifiable;
 
     protected $fillable = [
-       'salario_base','salario_ticket','salario_seguro'
+       'id_empleado','salario_base','salario_ticket','salario_seguro','fecha_inicio','fecha_fin'
     ];
 }

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDepartamentosTable extends Migration
+class TableReferencias extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,15 @@ class CreateDepartamentosTable extends Migration
      */
     public function up()
     {
-        //
-        Schema::create('Departamentos', function(Blueprint $table){
-
+        Schema::create('Referencias',function(Blueprint $table){
             $table->increments('id');
-            $table->string('nombre_departamento');
-            $table->timestamps();
+            $table->integer('id_persona')->unsigned();
+            $table->string('tiempo_conocido');
+            $table->string('telefono');
 
+            $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade');
+
+            $table->timestamps();
         });
     }
 
