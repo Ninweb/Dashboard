@@ -9,9 +9,10 @@
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
+    <link href="{{ asset('css/app.css') }}">
 
     <!-- Styles -->
-    <!-- <style>
+    <style>
         html, body {
             background-color: #fff;
             color: #636b6f;
@@ -62,10 +63,15 @@
         .m-b-md {
             margin-bottom: 30px;
         }
-    </style> -->
+    </style>
   </head>
   <body>
+    <div id="app">
+      <main-app/>
+    </div>
+    <script src="{{ asset('js/app.js') }}"></script>
 
+    {{--
     @extends ('layouts.app')
 
     @section('content')
@@ -97,6 +103,7 @@
 
         <app-component/>
     </div>
-    @endsection
+    @endsection  
+    --}}
   </body>
 </html>

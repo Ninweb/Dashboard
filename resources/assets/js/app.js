@@ -1,33 +1,36 @@
 
-/**
- * First we will load all of this project's JavaScript dependencies which
- * includes Vue and other libraries. It is a great starting point when
- * building robust, powerful web applications using Vue and Laravel.
- */
-
 require('./bootstrap');
 
-window.Vue = require('vue');
-window.VueRouter = require('vue-router').default
-window.VueAxios = require('vue-axios').default
-window.Axios = require('axios').default
+import Vue from 'vue'
+import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import Axios from 'axios'
+import {routes} from './routes'
+import StoreData from './store'
+import MainApp from './components/App.vue'
 
-let AppLayout = require("./components/App.vue")
+// window.Vue = require('vue');
+// window.VueRouter = require('vue-router').default
+// window.VueAxios = require('vue-axios').default
+// window.Axios = require('axios').default
+
+// let AppLayout = require("./components/App.vue")
 
 // registrando los modulos
-Vue.use(VueRouter, VueAxios, axios)
+Vue.use(VueRouter)
+Vue.use(Vuex)
 
-Vue.component('app-component', require('./components/App.vue'));
+const store = new Vuex.Store(StoreData)
 
-const router = new VueRouter({mode: 'history', routes: routes})
+// Vue.component('app-component', require('./components/App.vue'));
 
-new Vue(
-  Vue.util.extend(
-    {router},
-    AppLayout
-  )
-).$mount('#app')
+const router = new VueRouter({mode: 'history', routes})
 
-// const app = new Vue({
-//   el: '#app'
-// });
+const app = new Vue({
+  el: '#app',
+  router,
+  store,
+  components: {
+    MainApp
+  }
+});
