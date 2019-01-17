@@ -5,11 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-class Direccion extends Model
+class Salarios extends Model
 {
+    //
     use Notifiable;
 
     protected $fillable = [
-        'id_persona','parroquia','municipio','alcaldia','ciudad','zona'
+       'id_empleado','salario_base','salario_ticket','salario_seguro','fecha_inicio','fecha_fin'
     ];
 }
