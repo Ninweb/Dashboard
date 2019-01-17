@@ -1,15 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Departamento;
+use App\Departamentos;
 use Illuminate\Http\Request;
 
-class departamentoController extends Controller
+class DepartamentoController extends Controller
 {
     //
     public function index(){
 
-    	$departamentos = Departamento::all()->toArray();
+    	$departamentos = Departamentos::all()->toArray();
     	return response()->json($departamentos);
     }
 
@@ -22,7 +22,7 @@ class departamentoController extends Controller
 
 
     	 try{
-            $departamento = new Departamento([
+            $departamento = new Departamentos([
                 'nombre_departamento'=>$request->input('nombre_departamento')
             ]);
             $departamento->save();
@@ -41,14 +41,14 @@ class departamentoController extends Controller
     public function show($id)
     {
         //
-        $departamento = Departamento::find($id);
+        $departamento = Departamentos::find($id);
     	return response()->json($departamento);
     }
 
 
     public function edit($id){
 
-    $departamento = Departamento::find($id);
+    $departamento = Departamentos::find($id);
 
     }
 
@@ -57,7 +57,7 @@ class departamentoController extends Controller
     public function update($id, Request $request){
 
         //       
-        $departamento = Departamento::find($id);
+        $departamento = Departamentos::find($id);
         $departamento->fill($request->all());
         $departamento->save();
 
@@ -68,7 +68,7 @@ class departamentoController extends Controller
 
     	try {
 
-    		$departamento = Departamento::find($id);
+    		$departamento = Departamentos::find($id);
 
     		if (!$departamento){
 

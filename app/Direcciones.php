@@ -5,13 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 
-
-class Departamento extends Model
+class Direcciones extends Model
 {
-    //
     use Notifiable;
 
     protected $fillable = [
-       'nombre_departamento'
+        'id_persona','parroquia','municipio','alcaldia','ciudad','zona'
     ];
+
 }

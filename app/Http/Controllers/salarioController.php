@@ -2,15 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\Salario;
+use App\Salarios;
 use Illuminate\Http\Request;
 
-class salarioController extends Controller
+class SalarioController extends Controller
 {
     //
     public function index(){
 
-    	$salarios = Salario::all()->toArray();
+    	$salarios = Salarios::all()->toArray();
 
     	return response()->json($salarios);
 
@@ -25,7 +25,7 @@ class salarioController extends Controller
 
     	try{
 
-    		$salario = new Salario ([
+    		$salario = new Salarios ([
                 'id_empleado'=>$request->input('id_empleado'),
     			'salario_base'=>$request->input('salario_base'),
     			'salario_ticket'=>$request->input('salario_ticket'),
@@ -44,18 +44,18 @@ class salarioController extends Controller
 
     public function show($id){
 
-    	$salario = Salario::find($id);
+    	$salario = Salarios::find($id);
     	return response()->json($salario);
     }
 
     public function edit($id){
 
-        $salario = Usuario::find($id);
+        $salario = Salarios::find($id);
     }
 
     public function update(Request $request, $id){
 
-        $salario = Salario::find($id);
+        $salario = Salarios::find($id);
         $salario->fill($request->all());
         $salario->save();
 
@@ -66,12 +66,12 @@ class salarioController extends Controller
  
  		try{
 
- 			$salario = Departamento::find($id);
+ 			$salario = Salarios::find($id);
  			if (!$salario) {
  				# code...
  				return response()->json(['id no existe']);
  			}
- 			$departamento->delete();
+ 			$salario->delete();
  			return response()->json(['departamento eliminado'],200);
 
  		}catch (\Exception $e){
