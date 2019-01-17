@@ -8,6 +8,19 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
             </div>
+            <div class="row align-items-center">
+                <div class="col-md-4">
+                    Dashboard
+                </div>
+
+                <div class="col-md-4">
+                    <img src="../../../images/logo-ninweb.png">
+                </div>
+
+                <div class="col-md-4">
+                    Menu
+                </div>
+            </div>
         </div>
     </nav>
 </template>
@@ -18,3 +31,7 @@
         name: 'app-header'
     }
 </script>
+
+<style lang="sass" scoped>
+
+</style>
