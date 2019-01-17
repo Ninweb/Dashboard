@@ -64,6 +64,10 @@ class usuarioController extends Controller
     public function show($id)
     {
         //
+        $usuario = Usuario::find($id);
+
+         return response()->json($usuario);
+
     }
 
     /**
@@ -75,6 +79,7 @@ class usuarioController extends Controller
     public function edit($id)
     {
         //
+        $usuario = Usuario::find($id);
     }
 
     /**
@@ -84,9 +89,15 @@ class usuarioController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
     {
-        //
+        //       
+        $usuario = Usuario::find($id);
+        $usuario->fill($request->all());
+        $usuario->save();
+
+        return response()->json([$usuario]);
+
     }
 
     /**

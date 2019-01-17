@@ -29,3 +29,9 @@ Route::resource('departamentos','DepartamentoController',['only' => [
 Route::resource('salarios','SalarioController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
+
+Route::resource('personas','PersonaController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+Route::resource('login','Auth\LoginController');

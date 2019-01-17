@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Auth;
+use App\login;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
+use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
@@ -32,6 +35,27 @@ class LoginController extends Controller
      *
      * @return void
      */
+    public function store(Request $request){
+
+        try{
+            $usuario = new Usuario([
+                'correo'=>$request->input('correo'),
+                'contraseña'=>bcrypt( $request->input('contraseña')),
+            ]);
+
+        }
+            
+            if(Auth::attempt($usuario))
+            {
+                return "correcto";
+            }else{
+                return "incorrecto";    
+            }
+
+    }
+        
+
+
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
