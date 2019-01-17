@@ -48,14 +48,20 @@ class departamentoController extends Controller
 
     public function edit($id){
 
+    $departamento = Departamento::find($id);
 
     }
 
   
 
-    public function update(Request $request, $id){
+    public function update($id, Request $request){
 
+        //       
+        $departamento = Departamento::find($id);
+        $departamento->fill($request->all());
+        $departamento->save();
 
+        return response()->json([$departamento]);
     }
 
     public function destroy($id){

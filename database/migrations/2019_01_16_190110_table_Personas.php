@@ -24,7 +24,6 @@ class TablePersonas extends Migration
             $table->string('profesion');
 
 
-
             $table->timestamps();
         });
     }

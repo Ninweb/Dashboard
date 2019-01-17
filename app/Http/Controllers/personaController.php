@@ -4,13 +4,16 @@ namespace App\Http\Controllers;
 
 use App\Persona;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class personaController extends Controller
 {
     //
     public function index(){
 
-    	return 'index';
+    	 $personas = Persona::all()->toArray();
+
+        return response()->json($personas);
     }
 
     public function create(){
@@ -21,14 +24,15 @@ class personaController extends Controller
     public function store(Request $request){
         try{
 
-
-
-            $usuario = new Usuario([
-                'correo'=>$request->input('correo'),
-                'contraseña'=>bcrypt( $request->input('contraseña')),
-                'acceso_usuario'=>$request->input('acceso_usuario')
+            $persona = new Persona([
+                'nombre'=>$request->input('nombre'),
+                'apellido'=>$request->input('apellido'),
+                'sexo'=>$request->input('sexo'),
+                'fecha_nacimiento'=>$request->input('fecha_nacimiento'),
+                'cedula'=>$request->input('cedula'),
+                'profesion'=>$request->input('profesion')
             ]);
-            $usuario->save();
+            $persona->save();
             return response()->json([
                 'status'=>'true',
                 'Perfecto Gracias'
@@ -40,19 +44,28 @@ class personaController extends Controller
 
     }
 
-    public function show($id){
+    public function show($id)
+    {
 
+         $persona = Persona::find($id);
+
+         return response()->json($persona);
 
     }
 
     public function edit($id){
 
+         $persona = Persona::find($id);
 
     }
 
-    public function update(Request $request, $id)
+    public function update($id, Request $request)
+    {
+        $persona = Persona::find($id);
+        $persona->fill($request->all());
+        $persona->save();
 
-
+        return response()->json([$persona]);
     }
 
     public function destroy($id){

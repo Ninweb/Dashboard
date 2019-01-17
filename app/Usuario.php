@@ -23,4 +23,12 @@ class Usuario extends Model
     protected $hidden = [
         'contraseña', 'remember_token',
     ];
+
+    public function setPasswordAttribute(){
+
+        if (!empty($valor)) {
+            # code...
+            $this->attributes['contraseña'] = \Hash::make($valor);
+        }
+    }
 }

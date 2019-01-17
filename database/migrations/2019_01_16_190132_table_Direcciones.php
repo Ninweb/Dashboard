@@ -17,7 +17,7 @@ class TableDirecciones extends Migration
             $table->increments('id');
             $table->integer('id_persona')->unsigned();
             $table->string('parroquia');
-            $table->string('municio');
+            $table->string('municipio');
             $table->string('alcaldia');
             $table->string('ciudad');
             $table->string('zona');

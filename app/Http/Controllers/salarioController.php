@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\Salario;
 use Illuminate\Http\Request;
 
@@ -25,10 +26,12 @@ class salarioController extends Controller
     	try{
 
     		$salario = new Salario ([
+                'id_empleado'=>$request->input('id_empleado'),
     			'salario_base'=>$request->input('salario_base'),
     			'salario_ticket'=>$request->input('salario_ticket'),
-    			'salario_seguro'=>$request->input('salario_seguro')
-
+    			'salario_seguro'=>$request->input('salario_seguro'),
+                'fecha_inicio'=>$request->input('fecha_inicio'),
+                'fecha_fin'=>$request->input('fecha_fin')
     		]);
     		$salario->save();
     		return response()->json(['status'=>'true','gracias'],200);
@@ -47,12 +50,16 @@ class salarioController extends Controller
 
     public function edit($id){
 
-
+        $salario = Usuario::find($id);
     }
 
     public function update(Request $request, $id){
 
+        $salario = Salario::find($id);
+        $salario->fill($request->all());
+        $salario->save();
 
+        return response()->json([$salario]);
     }
 
     public function destroy($id){
