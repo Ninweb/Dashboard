@@ -2,6 +2,7 @@
 
 namespace App;
 
+
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,7 +21,7 @@ class Usuarios extends Model
      * @var array
      */
     protected $hidden = [
-        'contrasena', 'remember_token',
+        'contraseña', 'remember_token',
     ];
 
     public function setPasswordAttribute(){
