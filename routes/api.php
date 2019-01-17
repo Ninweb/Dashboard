@@ -29,3 +29,7 @@ Route::resource('departamentos','DepartamentoController',['only' => [
 Route::resource('salarios','SalarioController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
+
+
+
+Route::post('login', 'LoginController@login');
