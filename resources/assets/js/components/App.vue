@@ -1,9 +1,11 @@
 <template>
   <div id="main">
     <Header/>
+
     <div class="content">
       <router-view></router-view>
     </div>
+    
   </div>
 </template>
 
@@ -12,8 +14,15 @@
 
   export default {
     name: 'main-app',
+
     components: {
       Header
     }
   }
 </script>
+
+<style>
+  #main {
+    background: green;
+  }
+</style>

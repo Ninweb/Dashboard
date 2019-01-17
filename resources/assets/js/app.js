@@ -8,6 +8,7 @@ import Axios from 'axios'
 import {routes} from './routes'
 import StoreData from './store'
 import MainApp from './components/App.vue'
+import LoginComponent from './components/Login.vue'
 
 // window.Vue = require('vue');
 // window.VueRouter = require('vue-router').default
@@ -31,6 +32,7 @@ const app = new Vue({
   router,
   store,
   components: {
-    MainApp
+    MainApp,
+    LoginComponent
   }
 });
