@@ -18,3 +18,6 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('login','Auth\LoginController@login')->name('login');
+// {{ csrf_field() }} colocar debajo del form de login

@@ -48,6 +48,7 @@ class usuarioController extends Controller
             return response()->json([
                 'status'=>'true',
                 'Perfecto Gracias'
+                
             ],200);
         }catch (\Exception $e){
             Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
