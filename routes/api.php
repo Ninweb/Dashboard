@@ -34,4 +34,15 @@ Route::resource('personas','PersonaController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
-Route::resource('login','Auth\LoginController');
+Route::resource('direcciones','DireccionController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+Route::resource('familiares','FamiliarController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+Route::resource('empleados','EmpleadoController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+

@@ -15,7 +15,7 @@ class TableFamiliares extends Migration
     {
         Schema::create('Familiares',function(Blueprint $table){
             $table->increments('id');
-            $table->integer('id_Persona')->unsigned();
+            $table->integer('id_persona')->unsigned();
             $table->string('parentezco');
             $table->string('telefono');
             $table->string('sexo');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Usuario;
+use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -15,7 +15,7 @@ class usuarioController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuario::all()->toArray();
+        $usuarios = Usuarios::all()->toArray();
 
         return response()->json($usuarios);
     }
@@ -39,7 +39,7 @@ class usuarioController extends Controller
     public function store(Request $request)
     {
         try{
-            $usuario = new Usuario([
+            $usuario = new Usuarios([
                 'correo'=>$request->input('correo'),
                 'contraseña'=>bcrypt( $request->input('contraseña')),
                 'acceso_usuario'=>$request->input('acceso_usuario')
@@ -64,7 +64,7 @@ class usuarioController extends Controller
     public function show($id)
     {
         //
-        $usuario = Usuario::find($id);
+        $usuario = Usuarios::find($id);
 
          return response()->json($usuario);
 
@@ -79,7 +79,7 @@ class usuarioController extends Controller
     public function edit($id)
     {
         //
-        $usuario = Usuario::find($id);
+        $usuario = Usuarios::find($id);
     }
 
     /**
@@ -92,7 +92,7 @@ class usuarioController extends Controller
     public function update($id, Request $request)
     {
         //       
-        $usuario = Usuario::find($id);
+        $usuario = Usuarios::find($id);
         $usuario->fill($request->all());
         $usuario->save();
 
@@ -109,7 +109,7 @@ class usuarioController extends Controller
     public function destroy($id)
     {
         try{
-            $usuario = Usuario::find($id);
+            $usuario = Usuarios::find($id);
 
             if(!$usuario){
                 return response()->json(['Este id no existe'],404);

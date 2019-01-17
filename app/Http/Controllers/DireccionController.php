@@ -1,8 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
-use App\Direccion;
+use DB;
+use App\Direcciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -11,7 +11,11 @@ class DireccionController extends Controller
     //
     public function index()
     {
-    	$direcciones = Direccion::all()->toArray();
+    	$direcciones = DB::table('direcciones')
+    	->join('personas','personas.id','=','direcciones.id')
+    	->select('personas.nombre','direcciones.parroquia')
+    	->get();
+
         return response()->json($direcciones);
     }
 
@@ -21,12 +25,12 @@ class DireccionController extends Controller
     }
 
 
-    public function store()
+    public function store(Request $request)
     {
+    	
     	try{
-
-            $direccion = new Direccion([
-                'id_persona'=>$request->input('id_persona'),
+            $direccion = new Direcciones([
+            	'id_persona'=>$request->input('id_persona'),
                 'parroquia'=>$request->input('parroquia'),
                 'municipio'=>$request->input('municipio'),
                 'alcaldia'=>$request->input('alcaldia'),
@@ -41,16 +45,18 @@ class DireccionController extends Controller
         }catch (\Exception $e){
             Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
             return response('Algo salio mal',500);
+
         }
+        
     }
 
 
     public function show($id)
     {
 
-    	$persona = Persona::find($id);
+    	$direccion = Direcciones::find($id);
 
-        return response()->json($persona);
+        return response()->json($direccion);
 
     }
 

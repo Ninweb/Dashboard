@@ -2,16 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Persona;
+use App\Personas;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-class personaController extends Controller
+class PersonaController extends Controller
 {
     //
     public function index(){
 
-    	 $personas = Persona::all()->toArray();
+    	 $personas = Personas::all()->toArray();
 
         return response()->json($personas);
     }
@@ -24,7 +24,7 @@ class personaController extends Controller
     public function store(Request $request){
         try{
 
-            $persona = new Persona([
+            $persona = new Personas([
                 'nombre'=>$request->input('nombre'),
                 'apellido'=>$request->input('apellido'),
                 'sexo'=>$request->input('sexo'),
@@ -47,7 +47,7 @@ class personaController extends Controller
     public function show($id)
     {
 
-         $persona = Persona::find($id);
+         $persona = Personas::find($id);
 
          return response()->json($persona);
 
@@ -55,13 +55,13 @@ class personaController extends Controller
 
     public function edit($id){
 
-         $persona = Persona::find($id);
+         $persona = Personas::find($id);
 
     }
 
     public function update($id, Request $request)
     {
-        $persona = Persona::find($id);
+        $persona = Personas::find($id);
         $persona->fill($request->all());
         $persona->save();
 
@@ -71,8 +71,8 @@ class personaController extends Controller
     public function destroy($id){
 
     	try{
-
-    		$persona = Persona::find($id);
+            
+    		$persona = Personas::find($id);
     		if (!$persona) {
     			# code...
     			return response()->json(['id no encontrado']);
