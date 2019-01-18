@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use Auth;
+use Illuminate\Http\Request;
 
 use App\Http\Controllers\Controller;
 
@@ -11,18 +12,23 @@ class LoginController extends Controller
 {
     public function login(Request $request)
     {
-        $credenciales = $this->validate(request(),[
+        $this->validate(request(),[
            'correo' => 'email|required|string',
            'contraseña' => 'required|string'
         ]);
 
-        if (Auth::attempt(($credenciales))){
+        $credenciales = ['correo'=>$request->input('correo'),
+                        'contraseña'=>$request->input('contraseña')];
+
+
+        if (Auth::attempt($credenciales)){
             return "Tu sesión fue iniciada correctamente";
             //return redirect()->route('');
         }
 
-        return back()->withErrors(['correo' => trans('auth.failed')]);
-
+        return back()
+            ->withErrors(['correo' => trans('auth.failed')])
+            ->withInput(request(['correo']));
         /*
         $correo = $request->input('correo');
         $contraseña = $request->input('contraseña');

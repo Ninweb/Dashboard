@@ -7,11 +7,10 @@ namespace App;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
-<<<<<<< HEAD:app/Usuario.php
-class Usuario extends Authenticatable
-=======
-class Usuarios extends Model
->>>>>>> 865a073359ab0d2d9fd66d1626ad15934828c01c:app/Usuarios.php
+
+
+class Usuarios extends Authenticatable
+
 {
     use Notifiable;
 
