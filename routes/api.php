@@ -30,10 +30,13 @@ Route::resource('salarios','SalarioController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
+<<<<<<< HEAD
 
 
 Route::post('login', 'LoginController@login');
 
+=======
+>>>>>>> 2496c0a9740cd8324300852a6ce7e93e79c52414
 Route::resource('personas','PersonaController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
@@ -55,7 +58,10 @@ Route::resource('empleados','EmpleadoController',['only' => [
 ]]);
 
 Route::resource('login','Auth\LoginController');
+<<<<<<< HEAD
 
 Route::resource('prueba','pruebaUploadController');
 
 
+=======
+>>>>>>> 2496c0a9740cd8324300852a6ce7e93e79c52414

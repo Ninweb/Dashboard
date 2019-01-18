@@ -1,19 +1,25 @@
 <template>
   <div id="main">
-    <Header/>
+
     <div class="content">
       <router-view></router-view>
     </div>
+    
   </div>
 </template>
 
 <script>
-  import Header from './layout/Header.vue'
+  import LoginComponent from './components/Login.vue'
 
   export default {
     name: 'main-app',
+
     components: {
-      Header
+      LoginComponent
     }
   }
 </script>
+
+<style>
+
+</style>

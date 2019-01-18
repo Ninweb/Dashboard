@@ -12,9 +12,30 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth.login');
 });
+
+Route::get('/dashboard', function () {
+    return view('dashboardAdmin');
+});
+
+
+// Route::get('/dashboard/admin', function () {
+//     return view('dashboardAdmin');
+// });
+
+// Route::get('/dashboard/create', function () {
+//     return view('create');
+// });
+
+Route::get('/dashboard/user', function () {
+    return view('index');
+});
+
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::post('login','Auth\LoginController@login')->name('login');
+// {{ csrf_field() }} colocar debajo del form de login

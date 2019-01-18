@@ -8251,3 +8251,76 @@ button.close {
   }
 }
 
+#main .login-background {
+  height: 100vh;
+  background: #222;
+}
+
+#main .login-background .container {
+  color: white;
+}
+
+#main .login-background .container .panel {
+  background: none;
+  border: 1px solid grey;
+}
+
+#main .login-background .container .panel-heading {
+  background: #cc3333;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+#main .login-background .container .panel-body {
+  margin: 0 auto;
+}
+
+#main .login-background .container label {
+  margin: 0;
+  font-size: 18px;
+}
+
+#main .login-background .container .inside {
+  padding-top: 20%;
+}
+
+#main .login-background .container .title {
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 30px;
+}
+
+#main .login-background .container .logo {
+  text-align: center;
+  top: 50%;
+}
+
+#main .login-background .container .logo img {
+  width: 80%;
+  position: relative;
+}
+
+#main .login-background .container .fields {
+  background: none;
+  border-bottom-left-radius: 2px solid white;
+  margin: 15px 0;
+  font-size: 18px;
+  color: white;
+}
+
+#main .login-background .container .login-button {
+  margin: 10px auto;
+  border: none;
+  color: white;
+  background: #cc3333;
+  font-size: 20px;
+  transition: 0.3s;
+}
+
+#main .login-background .container .login-button:hover {
+  background: #bf0a08;
+}
+
