@@ -30,19 +30,9 @@ Route::resource('salarios','SalarioController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
-
-
-
-
-
-
 Route::resource('personas','PersonaController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
-
-
-
-
 
 Route::resource('direcciones','DireccionController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
