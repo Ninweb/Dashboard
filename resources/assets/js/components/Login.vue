@@ -1,7 +1,7 @@
 <template>
   <div class="bg-login">
     <div class="container">
-      <div class="row justify-content-center align-items-center" v-if="!mostrarDash">
+      <div class="row justify-content-center align-items-center">
         <div class="col-md-6 align-middle inside">
           <p class="title">Ninweb - Sistema administrativo</p>
           <form>
@@ -19,10 +19,6 @@
           <img src="../../images/logo-nin.png">
         </div>
       </div>
-
-      <div v-else>
-        <dashboard-component/>
-      </div>
     </div>
   </div>
 </template>
@@ -39,7 +35,8 @@ export default {
   data() {
     return {
       // info: '',
-      mostrarDash: false,
+      adminAccess: false,
+      userAccess: false,
 
       form: {
         email: '',
@@ -48,12 +45,14 @@ export default {
 
       admin: {
         email: 'admin@ninweb.net',
-        password: '1234'
+        password: '1234',
+        access: 'admin'
       },
 
       user: {
         email: 'user@ninweb.net',
-        password: '1234'
+        password: '1234',
+        access: 'user'
       }
     }
   },
@@ -61,12 +60,18 @@ export default {
   methods: {
     login() {
       if (this.form.email == this.admin.email && this.form.password == this.admin.password){
-        this.$router.replace('/dashboard')
-        mostrarDash = true
+        this.$router.push('/dashboard/admin')
+        // this.$emit('validate', this.admin.email)
+      }else if (this.form.email == this.user.email && this.form.password == this.user.password){
+        this.$router.push('/dashboard/user')
         // this.$emit('validate', this.admin.email)
       }
     }
   },
+
+  props: {
+
+  }
 
   /*mounted () {
     axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(
@@ -83,7 +88,8 @@ export default {
 
 <style scoped>
   .bg-login {
-    background:#222
+    height: 100vh;
+    background:#222;
   }
   .container {
     color:white;

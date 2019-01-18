@@ -1,0 +1,57 @@
+#main {
+  .login-background {
+    height: 100vh;
+    background:#222;
+  
+    .container {
+      color:white;
+
+      label {
+        margin:0;
+        font-size: 18px;
+      }
+      
+      .inside {
+        padding-top: 20%;
+      }
+      
+      .title {
+        font-weight: bold;
+        font-size: 30px;
+        margin-bottom: 30px;
+      }
+      
+      .logo {
+        text-align: center;
+        top: 50%;
+  
+        img {
+          width: 80%;
+          position: relative;
+        }
+      }
+      
+      .fields {
+        background: none;
+        border:none; 
+        border-bottom: 2px solid white;
+        margin: 15px 0;
+        font-size: 18px;
+        color: white;
+      }
+      .login-button {
+        margin: 10px auto;
+        border:none;
+        color:white;
+        background: #cc3333;
+        font-size: 20px;
+        transition: .3s;
+
+        &:hover {
+          background: #bf0a08;
+        }
+      }
+    }
+  }
+  
+}

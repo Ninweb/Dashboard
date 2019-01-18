@@ -15,7 +15,15 @@ Route::get('/', function () {
     return view('index');
 });
 
-Route::get('/dashboard', function () {
+Route::get('/dashboard/admin', function () {
+    return view('dashboardAdmin');
+});
+
+Route::get('/dashboard/create', function () {
+    return view('create');
+});
+
+Route::get('/dashboard/user', function () {
     return view('index');
 });
 

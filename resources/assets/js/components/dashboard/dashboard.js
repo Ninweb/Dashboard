@@ -21,11 +21,11 @@ const store = new Vuex.Store(StoreData)
 const router = new VueRouter({mode: 'history', routes})
 
 const app = new Vue({
-  // el: '#dashboard-view',
+  el: '#dashboardVista',
   router,
   store,
   components: {
     DashboardComponent,
   },
-
+  render: h => h(DashboardComponent)
 });

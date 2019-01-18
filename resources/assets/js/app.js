@@ -8,9 +8,9 @@ import Axios from 'axios'
 import routes from './components/routes'
 import StoreData from './store'
 
-import AppComponent from './App.vue'
+// import AppComponent from './App.vue'
 // import LoginComponent from './components/Login.vue'
-
+import DashboardComponent from './Dashboard.vue'
 
 // registrando los modulos
 Vue.use(VueRouter)
@@ -23,8 +23,8 @@ const store = new Vuex.Store(StoreData)
 const router = new VueRouter({mode: 'history', routes})
 
 const app = new Vue({
-  el: '#app',
+  el: '#dashboardVista',
   router,
   store,
-  render: h => h(AppComponent)
+  render: h => h(DashboardComponent)
 });

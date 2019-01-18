@@ -10,10 +10,10 @@
 </template>
 
 <script>
-  import Header from './layout/Header.vue'
-  import AdminComponent from './admin/Admin.vue'
-  import UserComponent from './user/User.vue'
-  import LoginComponent from '../Login'
+  import Header from './components/dashboard/layout/Header.vue'
+  import AdminComponent from './components/dashboard/admin/Admin.vue'
+  import UserComponent from './components/dashboard/user/User.vue'
+  // import LoginComponent from '../Login'
 
   export default {
     name: 'dashboard-view',
@@ -23,7 +23,7 @@
       Header,
       AdminComponent,
       UserComponent,
-      LoginComponent
+      // LoginComponent
     },
 
     methods: {
@@ -35,7 +35,4 @@
 </script>
 
 <style>
-  #dashboard {
-    /* background: #fff; */
-  }
 </style>

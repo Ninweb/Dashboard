@@ -11,7 +11,9 @@
     <!-- <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css"> -->
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     
-    <link href="{{ asset('css/app.css') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <!-- <link href="../css/index.css"> -->
+
     <link rel="stylesheet" 
     href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" 
     integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" 
@@ -21,10 +23,7 @@
     <!-- Styles -->
     <style>
       body {
-        background-color: #fff;
-        color: #222;
         font-family: 'Open Sans', sans-serif;
-        font-weight: 100;
         height: 100vh;
         margin: 0;
         width: 100%;
@@ -32,10 +31,8 @@
     </style>
   </head>
   <body>
-    <div >
       
-    </div>
-    
+    @yield('content')
     
     <script src="{{ asset('js/app.js') }}"></script>
 
@@ -44,4 +41,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
     
   </body>
-</html>
+</html> 
