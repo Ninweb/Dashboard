@@ -1,6 +1,5 @@
 <template>
   <div id="main">
-    <Header/>
 
     <div class="content">
       <router-view></router-view>
@@ -10,19 +9,17 @@
 </template>
 
 <script>
-  import Header from './layout/Header.vue'
+  import LoginComponent from './components/Login.vue'
 
   export default {
     name: 'main-app',
 
     components: {
-      Header
+      LoginComponent
     }
   }
 </script>
 
 <style>
-  #main {
-    background: green;
-  }
+
 </style>

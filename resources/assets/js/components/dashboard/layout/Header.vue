@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="col-md-4 logo">
-				<router-link to="/"><img src="../../../images/logo-ninweb.png"></router-link>					
+				<img src="../../../../images/logo-ninweb.png">
 			</div>
 
 			<div class="col-md-4 box">

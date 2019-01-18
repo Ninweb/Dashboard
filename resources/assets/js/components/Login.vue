@@ -1,45 +1,90 @@
 <template>
-  <div class="container">
-    <div class="row justify-content-center align-items-center">
-      <div class="col-md-6 align-middle inside">
-        <p class="title">Ninweb - Sistema administrativo</p>
-        <form>
-          <label>Correo electrónico</label> <br>
-          <input type="email" class="fields" v-model="form.email"/> <br>
-          <label>Contraseña</label> <br>
-          <input type="password" class="fields" v-model="form.password"/> <br>
-          <input type="submit" value="Login" class="btn btn-primary btn-login"/>
-        </form>
+  <div class="bg-login">
+    <div class="container">
+      <div class="row justify-content-center align-items-center" v-if="!mostrarDash">
+        <div class="col-md-6 align-middle inside">
+          <p class="title">Ninweb - Sistema administrativo</p>
+          <form>
+            <label>Correo electrónico</label> <br>
+            <input type="email" class="fields" v-model="form.email"/> <br>
+            <label>Contraseña</label> <br>
+            <input type="password" class="fields" v-model="form.password"/> <br>
+            <input type="submit" value="Ingresar" @click="login()" class="btn btn-primary btn-login"/>
+
+            <!-- <p>{{info}}</p> -->
+          </form>
+        </div>
+
+        <div class="col-md-6 logo align-middle inside">
+          <img src="../../images/logo-nin.png">
+        </div>
       </div>
 
-      <div class="col-md-6 logo align-middle inside">
-        <img src="../../images/logo-nin.png">
+      <div v-else>
+        <dashboard-component/>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+//import axios from 'axios'
+import DashboardComponent from './dashboard/Dashboard.vue'
+
 export default {
   name: 'login',
+
+  components: {DashboardComponent},
+
   data() {
     return {
+      // info: '',
+      mostrarDash: false,
+
       form: {
         email: '',
         password: ''
+      },
+
+      admin: {
+        email: 'admin@ninweb.net',
+        password: '1234'
+      },
+
+      user: {
+        email: 'user@ninweb.net',
+        password: '1234'
       }
     }
   },
 
   methods: {
-    authenticate() {
-      this.$store.dispatch(login);
+    login() {
+      if (this.form.email == this.admin.email && this.form.password == this.admin.password){
+        this.$router.replace('/dashboard')
+        mostrarDash = true
+        // this.$emit('validate', this.admin.email)
+      }
     }
-  }
+  },
+
+  /*mounted () {
+    axios.get('https://api.coindesk.com/v1/bpi/currentprice.json').then(
+      res => {
+        this.info = res
+        console.log(res)
+      }, error => {
+        console.log(error)
+      }
+    )
+  }*/
 }
 </script>
 
 <style scoped>
+  .bg-login {
+    background:#222
+  }
   .container {
     color:white;
   }
@@ -54,7 +99,7 @@ export default {
   .title {
     color:white;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 30px;
     margin-bottom: 30px;
   }
 
