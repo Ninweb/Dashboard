@@ -15,13 +15,18 @@ Route::get('/', function () {
     return view('auth.login');
 });
 
-Route::get('/dashboard/admin', function () {
+Route::get('/dashboard', function () {
     return view('dashboardAdmin');
 });
 
-Route::get('/dashboard/create', function () {
-    return view('create');
-});
+
+// Route::get('/dashboard/admin', function () {
+//     return view('dashboardAdmin');
+// });
+
+// Route::get('/dashboard/create', function () {
+//     return view('create');
+// });
 
 Route::get('/dashboard/user', function () {
     return view('index');
