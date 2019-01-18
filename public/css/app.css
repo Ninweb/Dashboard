@@ -8251,6 +8251,15 @@ button.close {
   }
 }
 
+body {
+  font-family: "Open Sans", sans-serif;
+  width: 100%;
+}
+
+#main {
+  overflow: hidden;
+}
+
 #main .login-background {
   height: 100vh;
   background: #222;

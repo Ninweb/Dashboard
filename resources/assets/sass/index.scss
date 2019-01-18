@@ -1,4 +1,11 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+}
+
 #main {
+  overflow: hidden;
+
   .login-background {
     height: 100vh;
     background:#222;
