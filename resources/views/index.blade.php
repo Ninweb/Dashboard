@@ -1,6 +1,6 @@
 @extends('layouts.main')
 
-@section('content')
+@section('contentido')
   <div id="main">
     <form method="POST">
       <div class="login-background">

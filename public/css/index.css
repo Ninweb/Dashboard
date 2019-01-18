@@ -7,6 +7,24 @@
   color: white;
 }
 
+#main .login-background .container .panel {
+  background: none;
+  border: 1px solid grey;
+}
+
+#main .login-background .container .panel-heading {
+  background: #cc3333;
+  text-align: center;
+  color: white;
+  font-size: 20px;
+  border: 1px solid grey;
+  width: 100%;
+}
+
+#main .login-background .container .panel-body {
+  margin: 0 auto;
+}
+
 #main .login-background .container label {
   margin: 0;
   font-size: 18px;
@@ -34,8 +52,7 @@
 
 #main .login-background .container .fields {
   background: none;
-  border: none;
-  border-bottom: 2px solid white;
+  border-bottom-left-radius: 2px solid white;
   margin: 15px 0;
   font-size: 18px;
   color: white;
