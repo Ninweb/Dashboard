@@ -6,6 +6,8 @@ use DB;
 use App\Empleados;
 use App\Personas;
 use App\Direcciones;
+use App\Usuarios;
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
@@ -98,12 +100,16 @@ class EmpleadoController extends Controller
         $empleado->save();
 
         return response()->json([$empleado]);
+
+        
     }
 
 
     public function destroy($id)
     {
     		
+    	try
+    	{
     		$empleado = Empleados::find($id);
     		if (!$empleado) {
     			# code...
@@ -111,27 +117,23 @@ class EmpleadoController extends Controller
     		}
 
     		$id_persona = $empleado->id_persona;
+    		$id_usuario = $empleado->id_usuario; 
+
     		$persona = Personas::where('id',$id_persona)->delete();
-    		//$respuesta = $this->persona->destroy($id_persona);
 
-    		return $persona;
+    		$delete = Empleados::where('id',$empleado)->delete();
 
+    		$usuario = Usuarios::where('id',$id_usuario)->delete();
 
-    	
-/*
-    	$empleado = DB::table('empleados')
-    	->join('personas','personas.id','=','empleados.id')
-    	->join('usuarios','usuarios.id','=','empleados.id')
-    	->join('salarios','salarios.id','=','empleados.id')
-    	->delete();
-    	$direcc
+    		
        
     		return response()->json(['empleado elimanado']);
 
     	}catch (\Exception $e){
             Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
             return response('Algo salio mal',500);
-        }*/
+        }
+
     }
 
 }
