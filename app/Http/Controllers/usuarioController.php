@@ -41,7 +41,7 @@ class usuarioController extends Controller
         try{
             $usuario = new Usuarios([
                 'correo'=>$request->input('correo'),
-                'contraseña'=>bcrypt( $request->input('contraseña')),
+                'password'=>bcrypt( $request->input('password')),
                 'acceso_usuario'=>$request->input('acceso_usuario')
             ]);
             $usuario->save();

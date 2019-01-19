@@ -16,7 +16,7 @@ class TableUsuarios extends Migration
         Schema::create('Usuarios', function (Blueprint $table) {
             $table->increments('id');
             $table->string('correo');
-            $table->string('contraseña');
+            $table->string('password');
             $table->string('acceso_usuario');
 
 

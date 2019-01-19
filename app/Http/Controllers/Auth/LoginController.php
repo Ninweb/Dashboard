@@ -18,12 +18,13 @@ class LoginController extends Controller
         ]);
 
         $credenciales = ['correo'=>$request->input('correo'),
-                        'contraseña'=>$request->input('contraseña')];
+                        'password'=>$request->input('contraseña')];
 
+        //return $credenciales;
 
         if (Auth::attempt($credenciales)){
             return "Tu sesión fue iniciada correctamente";
-            // return redirect()->route('/dashboard');
+            //return redirect()->route('/dashboard');
         }
 
         return back()

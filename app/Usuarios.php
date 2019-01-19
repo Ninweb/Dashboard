@@ -14,8 +14,10 @@ class Usuarios extends Authenticatable
 {
     use Notifiable;
 
+    protected $table = 'Usuarios';
+
     protected $fillable = [
-        'correo', 'contraseña','acceso_usuario'
+        'correo', 'password','acceso_usuario'
     ];
 
     /**
@@ -24,14 +26,14 @@ class Usuarios extends Authenticatable
      * @var array
      */
     protected $hidden = [
-        'contraseña', 'remember_token',
+        'password', 'remember_token',
     ];
 
     public function setPasswordAttribute(){
 
         if (!empty($valor)) {
             # code...
-            $this->attributes['contraseña'] = \Hash::make($valor);
+            $this->attributes['password'] = \Hash::make($valor);
         }
     }
 }
