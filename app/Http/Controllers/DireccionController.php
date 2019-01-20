@@ -56,7 +56,7 @@ class DireccionController extends Controller
 
     	$direccion = Direcciones::find($id);
 
-        return response()->json($direccion);
+        return $direccion;
 
     }
 

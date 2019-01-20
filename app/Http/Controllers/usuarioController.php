@@ -67,7 +67,7 @@ class usuarioController extends Controller
         //
         $usuario = Usuarios::find($id);
 
-         return response()->json($usuario);
+         return $usuario;
 
     }
 
@@ -97,7 +97,7 @@ class usuarioController extends Controller
         $usuario->fill($request->all());
         $usuario->save();
 
-        return response()->json([$usuario]);
+        return $usuario;
 
     }
 

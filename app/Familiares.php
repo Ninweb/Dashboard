@@ -10,6 +10,6 @@ class Familiares extends Model
     use Notifiable;
 
     protected $fillable = [
-        'id_persona','id_empleado','parentezco','telefono','sexo'
+        'id_persona','id_empleado','parentezco','telefono'
     ];
 }

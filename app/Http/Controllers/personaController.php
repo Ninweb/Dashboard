@@ -11,7 +11,7 @@ class PersonaController extends Controller
     //
     public function index(){
 
-    	 $personas = Personas::all()->toArray();
+    	$personas = Personas::all()->toArray();
 
         return response()->json($personas);
     }
@@ -49,7 +49,7 @@ class PersonaController extends Controller
 
          $persona = Personas::find($id);
 
-         return response()->json($persona);
+         return $persona;
 
     }
 
@@ -65,7 +65,7 @@ class PersonaController extends Controller
         $persona->fill($request->all());
         $persona->save();
 
-        return response()->json([$persona]);
+        return $persona;
     }
 
     public function destroy($id){

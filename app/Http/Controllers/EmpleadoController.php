@@ -82,8 +82,14 @@ class EmpleadoController extends Controller
 
     	$empleado = Empleados::find($id);
 
-        return response()->json($empleado);
+        return $empleado;
 
+    }
+
+    public function getEmpleado($id_usuario){
+        $empleado = Empleados::where('id_usuario',$id_usuario)->get();
+
+        return $empleado;
     }
 
     public function edit($id)
@@ -99,7 +105,7 @@ class EmpleadoController extends Controller
     	$empleado->fill($request->all());
         $empleado->save();
 
-        return response()->json([$empleado]);
+        return $empleado;
 
         
     }

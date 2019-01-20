@@ -37,7 +37,7 @@ class FamiliarController extends Controller
                 'id_empleado'=>$request->input('id_empleado'),
                 'parentezco'=>$request->input('parentezco'),
                 'telefono'=>$request->input('telefono'),
-                'sexo'=>$request->input('sexo'),
+            
                 
             ]);
             $familiar->save();
@@ -98,4 +98,10 @@ class FamiliarController extends Controller
         }
     }
 
+
+    public function getFamiliaresEmpleados($id_empleado){
+        $familiares = Familiares::where('id_empleado',$id_empleado)->get();
+
+        return $familiares;
+    }
 }

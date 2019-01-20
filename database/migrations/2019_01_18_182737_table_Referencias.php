@@ -17,7 +17,7 @@ class TableReferencias extends Migration
             $table->increments('id');
             $table->integer('id_persona')->unsigned();
             $table->integer('id_empleado')->unsigned();
-            $table->string('parentezco');
+            $table->string('relacion');
             $table->string('tiempo_conocido');
             $table->string('telefono');
 

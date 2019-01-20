@@ -34,7 +34,7 @@ class ReferenciaController extends Controller
 
     			'id_persona'=>$request->input('id_persona'),
                 'id_empleado'=>$request->input('id_empleado'),
-                'parentezco'=>$request->input('parentezco'),
+                'relacion'=>$request->input('relacion'),
                 'tiempo_conocido'=>$request->input('tiempo_conocido'),
                 'telefono'=>$request->input('telefono')
                
@@ -54,10 +54,10 @@ class ReferenciaController extends Controller
     {
     	$referencias = Referencias::find($id);
 
-    	return response()->json($referencias);
+    	return $referencias;
     }
 
-    public function edit()
+    public function edit($id)
     {
 
     	$empleado = Empleados::find($id);
@@ -71,7 +71,7 @@ class ReferenciaController extends Controller
     	$referencia->fill($request->all());
     	$referencia->save();
 
-    	return response()->json([$referencia]);
+    	return $referencia;
 
     }
 
@@ -94,4 +94,10 @@ class ReferenciaController extends Controller
         }    
     }
 
+
+    public function getReferenciasEmpleado($id_empleado){
+        $referencias = Referencias::where('id_empleado',$id_empleado)->get();
+
+        return $referencias;
+    }
 }

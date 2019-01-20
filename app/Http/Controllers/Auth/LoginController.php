@@ -23,8 +23,8 @@ class LoginController extends Controller
         //return $credenciales;
 
         if (Auth::attempt($credenciales)){
-            return "Tu sesión fue iniciada correctamente";
-            //return redirect()->route('/dashboard');
+            //return "Tu sesión fue iniciada correctamente";
+            return redirect()->route('dashboardPrueba');
         }
 
         return back()

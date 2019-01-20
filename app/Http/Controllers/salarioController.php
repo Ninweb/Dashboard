@@ -45,7 +45,8 @@ class SalarioController extends Controller
     public function show($id){
 
     	$salario = Salarios::find($id);
-    	return response()->json($salario);
+
+    	return $salario;
     }
 
     public function edit($id){
@@ -59,7 +60,7 @@ class SalarioController extends Controller
         $salario->fill($request->all());
         $salario->save();
 
-        return response()->json([$salario]);
+        return $salario;
     }
 
     public function destroy($id){

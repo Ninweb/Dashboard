@@ -50,4 +50,4 @@ Route::resource('empleados','EmpleadoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
-Route::resource('login','Auth\LoginController');
+Route::get('empleado/{id_usuario}','EmpleadoController@getEmpleado');
