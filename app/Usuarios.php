@@ -17,7 +17,7 @@ class Usuarios extends Authenticatable
     protected $table = 'Usuarios';
 
     protected $fillable = [
-        'correo', 'password','acceso_usuario'
+        'correo','password','acceso_usuario'
     ];
 
     /**
@@ -29,11 +29,5 @@ class Usuarios extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function setPasswordAttribute(){
-
-        if (!empty($valor)) {
-            # code...
-            $this->attributes['password'] = \Hash::make($valor);
-        }
-    }
+   
 }

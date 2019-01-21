@@ -18,17 +18,10 @@ class LoginController extends Controller
         ]);
 
         $credenciales = ['correo'=>$request->input('correo'),
-<<<<<<< HEAD
-                        'contraseña'=>bcrypt($request->input('contraseña'))
-        ];
-        $hola = Auth::attempt($credenciales);
-        return $credenciales;
-=======
                         'password'=>$request->input('contraseña')];
 
         //return $credenciales;
 
->>>>>>> 1c302fa1bb22b11070670c5953f08fe671dfe6b5
         if (Auth::attempt($credenciales)){
             //return "Tu sesión fue iniciada correctamente";
             return redirect()->route('dashboardPrueba');
