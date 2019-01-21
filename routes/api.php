@@ -50,4 +50,9 @@ Route::resource('empleados','EmpleadoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
+Route::resource('documentos','DocumentosController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+
 Route::get('empleado/{id_usuario}','EmpleadoController@getEmpleado');
