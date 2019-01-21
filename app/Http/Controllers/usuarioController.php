@@ -6,7 +6,7 @@ use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-class usuarioController extends Controller
+class UsuariosController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -37,23 +37,23 @@ class usuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
-    {   
-        
-     
+    {
+        try{
             $usuario = new Usuarios([
                 'correo'=>$request->input('correo'),
-                'password'=>bcrypt( $request->input('password')),
+                'password'=>bcrypt($request->input('password')),
                 'acceso_usuario'=>$request->input('acceso_usuario')
             ]);
-
             $usuario->save();
-            
             return response()->json([
                 'status'=>'true',
                 'Perfecto Gracias'
-                
             ],200);
-       
+        }catch (\Exception $e){
+            // return response($usuario);
+            Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
+            return response('Algo salio mal',500);
+        }
     }
 
     /**

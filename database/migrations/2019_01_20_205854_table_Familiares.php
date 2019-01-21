@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class TableReferencias extends Migration
+class TableFamiliares extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class TableReferencias extends Migration
      */
     public function up()
     {
-        Schema::create('Referencias',function(Blueprint $table){
+        Schema::create('Familiares',function(Blueprint $table){
             $table->increments('id');
             $table->integer('id_persona')->unsigned();
             $table->integer('id_empleado')->unsigned();
-            $table->string('relacion');
-            $table->string('tiempo_conocido');
+            $table->string('parentezco');
             $table->string('telefono');
+            $table->string('sexo');
 
             $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade');
             $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade');
