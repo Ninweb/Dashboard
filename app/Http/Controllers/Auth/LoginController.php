@@ -18,15 +18,16 @@ class LoginController extends Controller
         ]);
 
         $credenciales = ['correo'=>$request->input('correo'),
-                        'contraseña'=>$request->input('contraseña')];
-
-
+                        'contraseña'=>bcrypt($request->input('contraseña'))
+        ];
+        $hola = Auth::attempt($credenciales);
+        return $credenciales;
         if (Auth::attempt($credenciales)){
             return "Tu sesión fue iniciada correctamente";
             // return redirect()->route('/dashboard');
         }
 
-        return back()
+        /*return back()
             ->withErrors(['correo' => trans('auth.failed')])
             ->withInput(request(['correo']));
         /*
