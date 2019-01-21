@@ -10,6 +10,6 @@ class Referencias extends Model
     use Notifiable;
 
     protected $fillable = [
-        'id_persona','id_empleado','parentezco','tiempo_conocido','telefono'
+        'id_persona','id_empleado','relacion','tiempo_conocido','telefono'
     ];
 }

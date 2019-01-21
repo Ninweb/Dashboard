@@ -56,25 +56,44 @@ class DireccionController extends Controller
 
     	$direccion = Direcciones::find($id);
 
-        return response()->json($direccion);
+        return $direccion;
 
     }
 
-    public function edit()
+    public function edit($id)
     {
+
+        $direccion = Direcciones::find($id);
 
     }
 
 
-    public function update()
+    public function update($id, Request $request)
     {
+        $direccion=Direcciones::find($id);
+        $direccion->fill($request->all());
+        $direccion->save();
 
+        return response()->json([$direccion]);
     }
 
 
     public function destroy()
     {
+        try{
+            $direccion = Direcciones::find($id);
 
+            if(!$direccion){
+                return response()->json(['Este id no existe'],404);
+            }
+
+            $direccion->delete();
+            return response()->json(['Direccion eliminado'],200);
+
+        }catch (\Exception $e){
+            Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
+            return response('Algo salio mal',500);
+        }
     }
 
 

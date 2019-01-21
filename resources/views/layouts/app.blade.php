@@ -14,17 +14,9 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="/css/app.css">
 
-    <style>
-      body {
-        font-family: 'Open Sans', sans-serif;
-        height: 100vh;
-        margin: 0;
-        width: 100%;
-      }
-    </style>
 </head>
 <body>
-    <div class="dash">
+    <div>
         @yield('content');
     </div>
 

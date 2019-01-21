@@ -41,7 +41,7 @@ class usuarioController extends Controller
         try{
             $usuario = new Usuarios([
                 'correo'=>$request->input('correo'),
-                'contraseña'=>bcrypt( $request->input('contraseña')),
+                'password'=>bcrypt( $request->input('password')),
                 'acceso_usuario'=>$request->input('acceso_usuario')
             ]);
             $usuario->save();
@@ -67,7 +67,7 @@ class usuarioController extends Controller
         //
         $usuario = Usuarios::find($id);
 
-         return response()->json($usuario);
+         return $usuario;
 
     }
 
@@ -97,7 +97,7 @@ class usuarioController extends Controller
         $usuario->fill($request->all());
         $usuario->save();
 
-        return response()->json([$usuario]);
+        return $usuario;
 
     }
 

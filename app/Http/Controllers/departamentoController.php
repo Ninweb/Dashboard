@@ -42,7 +42,7 @@ class DepartamentoController extends Controller
     {
         //
         $departamento = Departamentos::find($id);
-    	return response()->json($departamento);
+    	return $departamento;
     }
 
 
@@ -61,7 +61,7 @@ class DepartamentoController extends Controller
         $departamento->fill($request->all());
         $departamento->save();
 
-        return response()->json([$departamento]);
+        return $departamento;
     }
 
     public function destroy($id){

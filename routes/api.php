@@ -42,8 +42,12 @@ Route::resource('familiares','FamiliarController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
+Route::resource('referencias','ReferenciaController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
 Route::resource('empleados','EmpleadoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
-Route::resource('login','Auth\LoginController');
+Route::get('empleado/{id_usuario}','EmpleadoController@getEmpleado');

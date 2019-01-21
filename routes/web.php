@@ -19,6 +19,8 @@ Route::get('/dashboard', function () {
     return view('dashboardAdmin');
 });
 
+Route::get('dashboardPrueba', 'DashboardPruebaController@index')->name('dashboardPrueba');
+
 
 // Route::get('/dashboard/admin', function () {
 //     return view('dashboardAdmin');

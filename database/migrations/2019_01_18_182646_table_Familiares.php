@@ -16,11 +16,13 @@ class TableFamiliares extends Migration
         Schema::create('Familiares',function(Blueprint $table){
             $table->increments('id');
             $table->integer('id_persona')->unsigned();
+            $table->integer('id_empleado')->unsigned();
             $table->string('parentezco');
             $table->string('telefono');
-            $table->string('sexo');
+           
 
             $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade');
+            $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade');
 
             $table->timestamps();
         });
