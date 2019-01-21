@@ -6,7 +6,7 @@ use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-class UsuariosController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -42,6 +42,7 @@ class UsuariosController extends Controller
             $usuario = new Usuarios([
                 'correo'=>$request->input('correo'),
                 'password'=>bcrypt($request->input('password')),
+                'api_token' => str_random(50),
                 'acceso_usuario'=>$request->input('acceso_usuario')
             ]);
             $usuario->save();
