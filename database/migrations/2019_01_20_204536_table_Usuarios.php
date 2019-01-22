@@ -21,7 +21,7 @@ class TableUsuarios extends Migration
             $table->text('api_token');
 
 
-            $table->rememberToken();
+
             $table->timestamps();
         });
     }

@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Usuarios;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 
@@ -24,8 +25,12 @@ class AuthServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->registerPolicies();
-
+        //$thisviea->registerPolicies();
+        $this->app['auth']->viaRequest('api',function ($request){
+           if ($request->input('api_token')){
+               return Usuarios::where('api_token',$request->input('api_token'))->first();
+           }
+        });
    
     }
 }
