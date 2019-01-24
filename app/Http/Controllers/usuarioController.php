@@ -13,6 +13,10 @@ class UsuarioController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+    public function  __construct(){
+        $this->middleware('authUser');
+    }
+
     public function index()
     {
         $usuarios = Usuarios::all()->toArray();

@@ -21,17 +21,26 @@ class AuthController extends Controller
 
         if (!$usuario){
 
-            return  response()->json(['status'=>'error', 'message'=>'Correo no valido'],404);
+            return  response()->json([
+                'status'=>'error',
+                'message'=>'Correo no valido'
+            ],404);
 
         }
 
         if ( Hash::check($request->input('password'), $usuario->password) ){
             $usuario->update(['api_token'=>str_random(50)]);
-            return response()->json(['status'=>'success','usuario'=>$usuario],200);
+            return response()->json([
+                'status'=>'success',
+                'usuario'=>$usuario
+            ],200);
         }
 
 
-        return response()->json(['status'=>'error','message'=>'Contraseña invalida'],401);
+        return response()->json([
+            'status'=>'error',
+            'message'=>'Contraseña invalida'
+        ],401);
 
     }
 
@@ -41,14 +50,20 @@ class AuthController extends Controller
         $usuario = Usuarios::where('api_token',$api_token)->first();
 
         if (!$usuario){
-            return  response()->json(['status'=>'error', 'message'=>'No esta logeado'],401);
+            return  response()->json([
+                'status'=>'error',
+                'message'=>'No esta logeado'
+            ],401);
         }
 
         $usuario->api_token = '';
 
         $usuario->save();
 
-        return  response()->json(['status'=>'Success', 'message'=>'Has cerrado sesion'],200);
+        return  response()->json([
+            'status'=>'success',
+            'message'=>'Has cerrado sesion'
+        ],200);
 
     }
 }

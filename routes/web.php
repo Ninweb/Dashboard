@@ -39,8 +39,7 @@ Auth::routes();
 
 Route::get('/prueba', ['mddleware'=>'auth' , 'DashboardPruebaController@index'])->name('prueba');
 
-Route::post('/login','AuthController@login')->name('login');
-Route::get('/logout','AuthController@logout')->name('logout');
+
 // {{ csrf_field() }} colocar debajo del form de login
 
 
