@@ -6,7 +6,7 @@ use App\Usuarios;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
-class UsuariosController extends Controller
+class UsuarioController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +15,13 @@ class UsuariosController extends Controller
      */
     public function index()
     {
-        $usuarios = Usuarios::all()->toArray();
+        
+        
+        $usuarios = Usuarios::all();
 
-        return response()->json($usuarios);
+        
+        return view('usuarios',compact('usuarios'));
+        
     }
 
     /**

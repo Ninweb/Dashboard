@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 
 
-class ReferenciasController extends Controller
+class ReferenciaController extends Controller
 {
     //
 

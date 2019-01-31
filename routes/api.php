@@ -50,9 +50,11 @@ Route::resource('empleados','EmpleadoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
-Route::resource('documentos','DocumentosController',['only' => [
+Route::resource('documentos','DocumentoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
 ]]);
 
 
 Route::get('empleado/{id_usuario}','EmpleadoController@getEmpleado');
+
+Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');

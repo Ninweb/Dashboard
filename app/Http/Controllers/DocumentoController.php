@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
-class pruebaUploadController extends Controller
+class DocumentoController extends Controller
 {
     public function index()
     {

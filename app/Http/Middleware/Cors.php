@@ -16,7 +16,7 @@ class Cors
     public function handle($request, Closure $next)
     {
         // Ruta de servidor de Vuejs (cualquier ruta aca tiene permiso de conectar al api)
-        $domains = ['http://localhost:8080', 'https://www.ninweb.net/dashboard'];
+        $domains = ['http://localhost:8081', 'https://www.ninweb.net/dashboard'];
 
         if (isset($request->server()['HTTP_ORIGIN'])){
             $origin = $request->server()['HTTP_ORIGIN'];
