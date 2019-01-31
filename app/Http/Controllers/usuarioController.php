@@ -69,12 +69,14 @@ class UsuarioController extends Controller
      */
     public function show($id)
     {
-        //
+        
         $usuario = Usuarios::find($id);
 
          return $usuario;
 
     }
+
+    
 
     /**
      * Show the form for editing the specified resource.
