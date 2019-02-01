@@ -9,7 +9,11 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
 use Illuminate\Support\Facades\Storage;
 
+<<<<<<< HEAD:app/Http/Controllers/DocumentoController.php
 class DocumentoController extends Controller
+=======
+class DocumentosController extends Controller
+>>>>>>> 08b6f852ae9803f8e77cb4404d41491e826d1717:app/Http/Controllers/DocumentosController.php
 {
     public function index()
     {

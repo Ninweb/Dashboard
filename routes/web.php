@@ -38,7 +38,11 @@ Route::get('/dashboard/user', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/prueba', ['mddleware'=>'auth' , 'DashboardPruebaController@index'])->name('prueba');
 
-Route::post('login','Auth\LoginController@login')->name('login');
+
 // {{ csrf_field() }} colocar debajo del form de login
+
+
+
+

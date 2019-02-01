@@ -18,9 +18,10 @@ class TableUsuarios extends Migration
             $table->string('correo');
             $table->string('password');
             $table->string('acceso_usuario');
+            $table->text('api_token');
 
 
-            $table->rememberToken();
+
             $table->timestamps();
         });
     }
