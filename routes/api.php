@@ -26,14 +26,39 @@ Route::get('/logout','AuthController@logout')->name('logout');
 
 
             // CRUD USUARIOS
-            Route::get('usuarios','UsuarioController@index');
-            Route::post('usuarios','UsuarioController@store');
-            Route::delete('usuarios/{usuario}','UsuarioController@destroy');
-            Route::put('usuarios/{usuario}','UsuarioController@update');
-
             /*Route::resource('usuarios','UsuarioController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
             ]]);*/
+            Route::get('usuarios','UsuarioController@index');
+            Route::get('usuarios/{usuario}','UsuarioController@show');
+            Route::post('usuarios','UsuarioController@store');
+            Route::delete('usuarios/{usuario}','UsuarioController@destroy');
+            Route::put('usuarios/{usuario}','UsuarioController@update');
+            
+            //CRUD EMPLEDO
+            /*Route::resource('empleados','EmpleadoController',['only' => [
+                'index', 'store','show' , 'update' , 'destroy'
+            ]]);*/
+            Route::get('empleados','EmpleadoController@index');
+            Route::get('empleados/{empleado}','EmpleadoController@show');
+            Route::get('usuario/empleados/{empleado}','EmpleadoController@getEmpleado');
+            Route::post('empleados','EmpleadoController@store');
+            Route::delete('empleados/{empleado}','EmpleadoController@destroy');
+            Route::put('empleados/{empleado}','EmpleadoController@update');
+
+            //CRUD PERSONAS
+            /*Route::resource('personas','PersonaController',['only' => [
+                'index', 'store','show' , 'update' , 'destroy'
+            ]]);*/
+            Route::get('personas','PersonaController@index');
+            Route::get('personas/{persona}','PersonaController@show');
+            Route::get('personas/empleados/{persona}','PersonaController@getEmpleado');
+            Route::post('personas','PersonaController@store');
+            Route::delete('personas/{persona}','PersonaController@destroy');
+            Route::put('personas/{persona}','PersonaController@update');
+
+
+            
 
             Route::resource('departamentos','DepartamentoController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
@@ -54,9 +79,7 @@ Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf'
                 'index', 'store','show' , 'update' , 'destroy'
             ]]);
 
-            Route::resource('personas','PersonaController',['only' => [
-                'index', 'store','show' , 'update' , 'destroy'
-            ]]);
+            
 
             Route::resource('direcciones','DireccionController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
@@ -70,9 +93,7 @@ Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf'
                 'index', 'store','show' , 'update' , 'destroy'
             ]]);
 
-            Route::resource('empleados','EmpleadoController',['only' => [
-                'index', 'store','show' , 'update' , 'destroy'
-            ]]);
+            
 
             Route::resource('documentos','DocumentosController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'

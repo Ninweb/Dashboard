@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller
 {
+
+    public function  __construct(){
+        $this->middleware('authUser');
+    }
     //
     public function index(){
 

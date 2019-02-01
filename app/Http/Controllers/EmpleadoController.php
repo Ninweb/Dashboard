@@ -15,10 +15,10 @@ class EmpleadoController extends Controller
 {
      
     protected $persona;
-
+    
     public function  __contruc(PersonaController $persona){
-    	$this->persona = $persona;
-
+        $this->persona = $persona;
+        $this->middleware('authUser');
     }
 
     public function index()
@@ -87,6 +87,7 @@ class EmpleadoController extends Controller
     }
 
     public function getEmpleado($id_usuario){
+
         $empleado = Empleados::where('id_usuario',$id_usuario)->get();
 
         return $empleado;

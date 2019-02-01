@@ -23,8 +23,8 @@ class AuthController extends Controller
 
             return  response()->json([
                 'status'=>'error',
-                'message'=>'Correo no valido'
-            ],404);
+                'message'=>' Correo no válido'
+            ]);
 
         }
 
@@ -39,8 +39,8 @@ class AuthController extends Controller
 
         return response()->json([
             'status'=>'error',
-            'message'=>'Contraseña invalida'
-        ],401);
+            'message'=>' Contraseña inválida'
+        ]);
 
     }
 

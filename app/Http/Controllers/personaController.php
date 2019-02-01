@@ -8,6 +8,11 @@ use Illuminate\Support\Facades\Log;
 
 class PersonaController extends Controller
 {
+
+    public function  __construct(){
+        $this->middleware('authUser');
+    }
+    
     //
     public function index(){
 
