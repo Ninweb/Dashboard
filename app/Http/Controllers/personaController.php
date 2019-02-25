@@ -10,7 +10,7 @@ class PersonaController extends Controller
 {
 
     public function  __construct(){
-        $this->middleware('authUser');
+        // $this->middleware('authUser');
     }
     
     //
