@@ -19,9 +19,13 @@ class UsuarioController extends Controller
 
     public function index()
     {
-        $usuarios = Usuarios::all()->toArray();
+        
+        
+        $usuarios = Usuarios::all();
 
-        return response()->json($usuarios);
+        
+        return view('usuarios',compact('usuarios'));
+        
     }
 
     /**

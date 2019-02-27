@@ -70,6 +70,16 @@ Route::get('/logout','AuthController@logout')->name('logout');
             Route::delete('departamentos/{departamento}','DepartamentoController@destroy');
             Route::put('departamentos/{departamento}','DepartamentoController@update');
 
+Route::resource('documentos','DocumentoController',['only' => [
+    'index', 'store','show' , 'update' , 'destroy'
+]]);
+
+
+
+
+Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf');
+
+
             Route::resource('salarios','SalarioController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
             ]]);
@@ -103,5 +113,6 @@ Route::get('/logout','AuthController@logout')->name('logout');
             ]]);
 
             Route::get('empleado/{id_usuario}','EmpleadoController@getEmpleado');
+
 
 

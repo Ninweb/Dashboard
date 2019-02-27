@@ -23,7 +23,7 @@ class AuthController extends Controller
 
             return  response()->json([
                 'status'=>'error',
-                'message'=>'Correo no valido'
+                'message'=>' Correo no válido'
             ]);
 
         }
@@ -39,7 +39,11 @@ class AuthController extends Controller
 
         return response()->json([
             'status'=>'error',
+<<<<<<< HEAD
             'message'=>'Contraseña invalida'
+=======
+            'message'=>' Contraseña inválida'
+>>>>>>> c1d9550cdcea0730b87912604142aead3073af8e
         ]);
 
     }
