@@ -54,7 +54,7 @@ class DireccionController extends Controller
     public function show($id)
     {
 
-    	$direccion = Direcciones::find($id);
+    	$direccion = Direcciones::where('id_persona',$id)->get();
 
         return $direccion;
 

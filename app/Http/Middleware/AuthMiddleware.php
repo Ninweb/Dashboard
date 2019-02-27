@@ -25,6 +25,7 @@ class AuthMiddleware
 
     public function handle($request, Closure $next)
     {
+
         if($request->status == 'success' ){
             $this->usuarioRequest = $request->usuario;
             try{
