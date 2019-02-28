@@ -19,6 +19,7 @@ class TableUsuarios extends Migration
             $table->string('password');
             $table->string('acceso_usuario');
             $table->text('api_token');
+            $table->string('first_login');
 
 
 

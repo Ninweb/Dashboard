@@ -14,7 +14,7 @@ class UsuarioController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function  __construct(){
-        $this->middleware('authUser');
+        // $this->middleware('authUser');
     }
 
     public function index()
@@ -51,7 +51,8 @@ class UsuarioController extends Controller
                 'correo'=>$request->input('correo'),
                 'password'=>bcrypt($request->input('password')),
                 'api_token' => str_random(50),
-                'acceso_usuario'=>$request->input('acceso_usuario')
+                'acceso_usuario'=>$request->input('acceso_usuario'),
+                'first_login' => 1
             ]);
             $usuario->save();
             return response()->json([
