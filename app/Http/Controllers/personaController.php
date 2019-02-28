@@ -10,7 +10,7 @@ class PersonaController extends Controller
 {
 
     public function  __construct(){
-        // $this->middleware('authUser');
+       
     }
     
     //
@@ -57,6 +57,8 @@ class PersonaController extends Controller
          return $persona;
 
     }
+
+
 
     public function edit($id){
 

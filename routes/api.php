@@ -42,6 +42,7 @@ Route::get('/logout','AuthController@logout')->name('logout');
             Route::get('empleados','EmpleadoController@index');
             Route::get('empleados/{empleado}','EmpleadoController@show');
             Route::get('usuario/empleados/{empleado}','EmpleadoController@getEmpleado');
+            Route::get('empleadoDepartamento/{idDepartamento}','EmpleadoController@getEmpleadoDepartamento');
             Route::post('empleados','EmpleadoController@store');
             Route::delete('empleados/{empleado}','EmpleadoController@destroy');
             Route::put('empleados/{empleado}','EmpleadoController@update');
@@ -52,7 +53,6 @@ Route::get('/logout','AuthController@logout')->name('logout');
             ]]);*/
             Route::get('personas','PersonaController@index');
             Route::get('personas/{persona}','PersonaController@show');
-            Route::get('personas/empleados/{persona}','PersonaController@getEmpleado');
             Route::post('personas','PersonaController@store');
             Route::delete('personas/{persona}','PersonaController@destroy');
             Route::put('personas/{persona}','PersonaController@update');
@@ -60,10 +60,15 @@ Route::get('/logout','AuthController@logout')->name('logout');
 
             
 
-            Route::resource('departamentos','DepartamentoController',['only' => [
+            /*Route::resource('departamentos','DepartamentoController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
-            ]]);
-
+            ]]);*/
+            
+            Route::get('departamentos','DepartamentoController@index');
+            Route::get('departamentos/{departamento}','DepartamentoController@show');
+            Route::post('departamentos','DepartamentoController@store');
+            Route::delete('departamentos/{departamento}','DepartamentoController@destroy');
+            Route::put('departamentos/{departamento}','DepartamentoController@update');
 
 Route::resource('documentos','DocumentoController',['only' => [
     'index', 'store','show' , 'update' , 'destroy'
@@ -80,10 +85,18 @@ Route::get('generate-pdf', 'PdfGenerateController@pdfview')->name('generate-pdf'
             ]]);
 
             
-
+                /*
             Route::resource('direcciones','DireccionController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
-            ]]);
+            ]]);*/
+
+            Route::get('direcciones','DireccionController@index');
+            Route::get('direcciones/{direccion}','DireccionController@show');
+            Route::post('direcciones','DireccionController@store');
+            Route::delete('direcciones/{direccion}','DireccionController@destroy');
+            Route::put('direcciones/{direccion}','DireccionController@update');
+
+
 
             Route::resource('familiares','FamiliarController',['only' => [
                 'index', 'store','show' , 'update' , 'destroy'
