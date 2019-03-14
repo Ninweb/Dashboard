@@ -43,6 +43,7 @@ Route::get('/logout','AuthController@logout')->name('logout');
             Route::get('empleados/{empleado}','EmpleadoController@show');
             Route::get('usuario/empleados/{empleado}','EmpleadoController@getEmpleado');
             Route::get('empleadoDepartamento/{idDepartamento}','EmpleadoController@getEmpleadoDepartamento');
+            Route::post('empleados','EmpleadoController@getUltimoID');
             Route::post('empleados','EmpleadoController@store');
             Route::delete('empleados/{empleado}','EmpleadoController@destroy');
             Route::put('empleados/{empleado}','EmpleadoController@update');

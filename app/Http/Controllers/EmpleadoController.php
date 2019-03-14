@@ -7,6 +7,7 @@ use App\Empleados;
 use App\Personas;
 use App\Direcciones;
 use App\Usuarios;
+use App\Departamentos;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -20,17 +21,41 @@ class EmpleadoController extends Controller
         $this->persona = $persona;
     }
 
+  
+    
+
     public function index()
     {
+
+        /*
     	
     	$empleados = DB::table('empleados')
     	->join('personas','personas.id','=','empleados.id')
     	->join('departamentos','departamentos.id','=','empleados.id')
     	->select('personas.nombre','empleados.descripcion_cargo','departamentos.nombre_departamento')
     	->get();
+        */
 
+         $idPersona = DB::table('Personas')
+                 ->select('id')
+                 ->orderBy('created_at','DESC')
+                 ->take(1)
+                 ->get();
+
+             
+
+        $idUsuario = DB::table('Usuarios')
+                 ->select('id')
+                 ->orderBy('created_at','DESC')
+                 ->take(1)
+                 ->get();
+
+        
+       return $idUsuario;
+
+        
     
-        return response()->json($empleados);
+    
         
     }
 
@@ -46,9 +71,9 @@ class EmpleadoController extends Controller
     	try{
             $empleado = new Empleados([
 
-            	'id_persona'=>$request->input('id_persona'),
-                'id_usuario'=>$request->input('id_usuario'),
-                'id_departamento'=>$request->input('id_departamento'),
+            	'id_persona'=>$request->$idPersona,
+                'id_usuario'=>$request->$idUsuario,
+                'id_departamento'=>$request->$idDepartamento,
                 'descripcion_cargo'=>$request->input('descripcion_cargo'),
                 'fecha_ingreso'=>$request->input('fecha_ingreso'),
                 'fecha_retirado'=>$request->input('fecha_retirado'),
@@ -97,6 +122,10 @@ class EmpleadoController extends Controller
 
         return $empleado;
     }
+
+
+    
+
 
     public function edit($id)
     {
