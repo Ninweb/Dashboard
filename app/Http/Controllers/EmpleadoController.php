@@ -36,22 +36,27 @@ class EmpleadoController extends Controller
     	->get();
         */
 
-         $idPersona = DB::table('Personas')
-                 ->select('id')
-                 ->orderBy('created_at','DESC')
-                 ->take(1)
-                 ->get();
-
+        $idPersona = DB::table('personas')
+                ->select('id')
+                ->orderBy('created_at','DESC')
+                ->take(1)
+                ->get();
              
 
-        $idUsuario = DB::table('Usuarios')
+        $idUsuario = DB::table('usuarios')
                  ->select('id')
                  ->orderBy('created_at','DESC')
                  ->take(1)
                  ->get();
 
+        $idDepartamento = DB::table('departamentos')
+            ->select('id')
+            ->orderBy('created_at','DESC')
+            ->take(1)
+            ->get();
+
         
-       return $idUsuario;
+    //    return $idPersona, $idUsuario, $idDepartamento;
 
         
     
@@ -71,9 +76,9 @@ class EmpleadoController extends Controller
     	try{
             $empleado = new Empleados([
 
-            	'id_persona'=>$request->$idPersona,
-                'id_usuario'=>$request->$idUsuario,
-                'id_departamento'=>$request->$idDepartamento,
+            	'id_persona'=>$idPersona,
+                'id_usuario'=>$idUsuario,
+                'id_departamento'=>$idDepartamento,
                 'descripcion_cargo'=>$request->input('descripcion_cargo'),
                 'fecha_ingreso'=>$request->input('fecha_ingreso'),
                 'fecha_retirado'=>$request->input('fecha_retirado'),
