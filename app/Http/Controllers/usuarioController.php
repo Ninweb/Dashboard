@@ -54,6 +54,7 @@ class UsuarioController extends Controller
                 'acceso_usuario'=>$request->input('acceso_usuario'),
                 'first_login' => 1
             ]);
+            $idUsuario = $usuario->id;
             $usuario->save();
             return response()->json([
                 'status'=>'true',

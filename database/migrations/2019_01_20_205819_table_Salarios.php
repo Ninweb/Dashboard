@@ -24,7 +24,7 @@ class TableSalarios extends Migration
             $table->date('fecha_fin');
 
 
-            $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade');
+            $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

@@ -26,6 +26,7 @@ class DepartamentoController extends Controller
             $departamento = new Departamentos([
                 'nombre_departamento'=>$request->input('nombre_departamento')
             ]);
+            $idDepartamento = $departamento->id;
             $departamento->save();
             return response()->json([
                 'status'=>'true',

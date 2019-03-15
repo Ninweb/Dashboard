@@ -37,6 +37,7 @@ class PersonaController extends Controller
                 'cedula'=>$request->input('cedula'),
                 'profesion'=>$request->input('profesion')
             ]);
+            $idPersona = $persona->id;
             $persona->save();
             return response()->json([
                 'status'=>'true',

@@ -32,9 +32,9 @@ class TableEmpleados extends Migration
             $table->string('estado_civil');
             $table->string('educacion');
 
-            $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade');
-            $table->foreign('id_usuario')->references('id')->on('Usuarios')->onDelete('cascade');
-            $table->foreign('id_departamento')->references('id')->on('Departamentos')->onDelete('cascade');
+            $table->foreign('id_persona')->references('id')->on('Personas')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_usuario')->references('id')->on('Usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('id_departamento')->references('id')->on('Departamentos')->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();
         });

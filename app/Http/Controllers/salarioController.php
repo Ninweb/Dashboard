@@ -2,15 +2,24 @@
 
 namespace App\Http\Controllers;
 
+use DB;
+use App\Empleados;
 use App\Salarios;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class SalarioController extends Controller
 {
     //
     public function index(){
 
-    	$salarios = Salarios::all()->toArray();
+        // $salarios = Salarios::all()->toArray();
+        
+        $salarios = DB::table('salarios')
+    	->join('empleados','empleados.id','=','salarios.id')
+    	// ->join('departamentos','departamentos.id','=','empleados.id')
+    	// ->select('personas.nombre','empleados.descripcion_cargo','departamentos.nombre_departamento')
+    	->get();
 
     	return response()->json($salarios);
 
@@ -22,11 +31,12 @@ class SalarioController extends Controller
     }
 
     public function store(Request $request){
+        $idEmpleado = DB::table('Empleados')->latest('id')->first();
 
     	try{
 
     		$salario = new Salarios ([
-                'id_empleado'=>$request->input('id_empleado'),
+                'id_empleado'=>$idEmpleado->id,
     			'salario_base'=>$request->input('salario_base'),
     			'salario_ticket'=>$request->input('salario_ticket'),
     			'salario_seguro'=>$request->input('salario_seguro'),

@@ -27,33 +27,33 @@ class EmpleadoController extends Controller
     public function index()
     {
 
-        /*
+        
     	
     	$empleados = DB::table('empleados')
     	->join('personas','personas.id','=','empleados.id')
     	->join('departamentos','departamentos.id','=','empleados.id')
     	->select('personas.nombre','empleados.descripcion_cargo','departamentos.nombre_departamento')
     	->get();
-        */
+        
 
-        $idPersona = DB::table('personas')
-                ->select('id')
-                ->orderBy('created_at','DESC')
-                ->take(1)
-                ->get();
+        // $idPersona = DB::table('personas')
+        //         ->select('id')
+        //         ->orderBy('created_at','DESC')
+        //         ->take(1)
+        //         ->get();
              
 
-        $idUsuario = DB::table('usuarios')
-                 ->select('id')
-                 ->orderBy('created_at','DESC')
-                 ->take(1)
-                 ->get();
+        // $idUsuario = DB::table('usuarios')
+        //          ->select('id')
+        //          ->orderBy('created_at','DESC')
+        //          ->take(1)
+        //          ->get();
 
-        $idDepartamento = DB::table('departamentos')
-            ->select('id')
-            ->orderBy('created_at','DESC')
-            ->take(1)
-            ->get();
+        // $idDepartamento = DB::table('departamentos')
+        //     ->select('id')
+        //     ->orderBy('created_at','DESC')
+        //     ->take(1)
+        //     ->get();
 
         
     //    return $idPersona, $idUsuario, $idDepartamento;
@@ -66,19 +66,41 @@ class EmpleadoController extends Controller
 
     public function create()
     {
-
+        
     }
 
 
     public function store(Request $request)
     {
-    	
+    	// $idPersona = DB::table('Personas')
+        //         ->select('id')
+        //         ->orderBy('created_at','DESC')
+        //         ->take(1)
+        //         ->get();
+             
+
+        // $idUsuario = DB::table('Usuarios')
+        //          ->select('id')
+        //          ->orderBy('created_at','DESC')
+        //          ->take(1)
+        //          ->get();
+
+        // $idDepartamento = DB::table('Departamentos')
+        //     ->select('id')
+        //     ->orderBy('created_at','DESC')
+        //     ->take(1)
+        //     ->get();
+
+        $idPersona = DB::table('Personas')->latest('id')->first();
+        $idUsuario = DB::table('Usuarios')->latest('id')->first();
+        $idDepartamento = DB::table('Departamentos')->latest('id')->first();
+
     	try{
             $empleado = new Empleados([
 
-            	'id_persona'=>$idPersona,
-                'id_usuario'=>$idUsuario,
-                'id_departamento'=>$idDepartamento,
+            	'id_persona'=>$idPersona->id,
+                'id_usuario'=>$idUsuario->id,
+                'id_departamento'=>$idDepartamento->id,
                 'descripcion_cargo'=>$request->input('descripcion_cargo'),
                 'fecha_ingreso'=>$request->input('fecha_ingreso'),
                 'fecha_retirado'=>$request->input('fecha_retirado'),
