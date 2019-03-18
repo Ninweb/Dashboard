@@ -101,6 +101,7 @@ class EmpleadoController extends Controller
             	'id_persona'=>$idPersona->id,
                 'id_usuario'=>$idUsuario->id,
                 'id_departamento'=>$idDepartamento->id,
+                'numero_carnet'=>$request->input('numero_carnet'),
                 'descripcion_cargo'=>$request->input('descripcion_cargo'),
                 'fecha_ingreso'=>$request->input('fecha_ingreso'),
                 'fecha_retirado'=>$request->input('fecha_retirado'),

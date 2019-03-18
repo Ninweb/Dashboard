@@ -19,6 +19,7 @@ class TableEmpleados extends Migration
             $table->integer('id_persona')->unsigned();
             $table->integer('id_usuario')->unsigned();
             $table->integer('id_departamento')->unsigned();
+            $table->string('numero_carnet');
             $table->string('descripcion_cargo');
             $table->date('fecha_ingreso');
             $table->date('fecha_retirado');
