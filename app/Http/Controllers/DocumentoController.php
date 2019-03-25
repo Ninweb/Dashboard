@@ -19,6 +19,7 @@ class DocumentosController extends Controller
     public function store(Request $request)
     {
     	
+        // $idEmpleado = DB::table('Empleados')->latest('id')->first();
 
     	try{
     		$this->validate($request, [
@@ -26,11 +27,12 @@ class DocumentosController extends Controller
 			]);
 
 
-    		 $ruta = time().'.'.$request->ruta->getClientOriginalExtension();
-    		 $request->ruta->move(public_path('documentos'), $ruta);
+            $ruta = time().'.'.$request->ruta->getClientOriginalExtension();
+            $request->ruta->move(public_path('documentos'), $ruta);
 
-    		 $upload = new Documentos([
-               'id_empleado'=>$request->input('id_empleado'),
+            $upload = new Documentos([
+                // 'id_empleado'=>$idEmpleado,
+                'id_empleado'=>$request->input('id_empleado'),
                 'ruta'=>$ruta,
             ]);
     		$upload->save();

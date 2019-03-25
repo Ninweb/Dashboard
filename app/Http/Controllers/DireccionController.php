@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 use DB;
+use App\Personas;
 use App\Direcciones;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -27,10 +28,11 @@ class DireccionController extends Controller
 
     public function store(Request $request)
     {
-    	
+    	// $idPersona = DB::table('Personas')->latest('id')->first();
     	try{
             $direccion = new Direcciones([
-            	'id_persona'=>$request->input('id_persona'),
+                // 'id_persona'=>$idPersona,
+                'id_persona'=>$request->input('id_persona'),
                 'parroquia'=>$request->input('parroquia'),
                 'municipio'=>$request->input('municipio'),
                 'alcaldia'=>$request->input('alcaldia'),

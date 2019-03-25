@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use DB;
+use App\Empleados;
+use App\Personas;
 use App\Familiares;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Log;
@@ -29,12 +31,16 @@ class FamiliarController extends Controller
 
     public function store(Request $request)
     {
-    	
+    	// $idPersona = DB::table('Personas')->latest('id')->first();
+        // $idEmpleado = DB::table('Empleados')->latest('id')->first();
+
     	try{
             $familiar = new Familiares([
 
-            	'id_persona'=>$request->input('id_persona'),
-                'id_empleado'=>$request->input('id_empleado'),
+            	// 'id_persona'=>$idPersona,
+                // 'id_empleado'=>$idEmpleado,
+                'id_persona'=>$request->input('id_persona'),
+                'id_empleado'=>$request->input('id_empleado'),                
                 'parentezco'=>$request->input('parentezco'),
                 'telefono'=>$request->input('telefono'),
             

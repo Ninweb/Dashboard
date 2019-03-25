@@ -27,6 +27,8 @@ class ReferenciaController extends Controller
 
     public function store(Request $request)
     {
+        // $idPersona = DB::table('Personas')->latest('id')->first();
+        // $idEmpleado = DB::table('Empleados')->latest('id')->first();
     	try
     	{
 
@@ -34,6 +36,8 @@ class ReferenciaController extends Controller
 
     			'id_persona'=>$request->input('id_persona'),
                 'id_empleado'=>$request->input('id_empleado'),
+                // 'id_persona'=>$idPersona,
+                // 'id_empleado'=>$idEmpleado,
                 'relacion'=>$request->input('relacion'),
                 'tiempo_conocido'=>$request->input('tiempo_conocido'),
                 'telefono'=>$request->input('telefono')
