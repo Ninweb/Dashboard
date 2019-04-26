@@ -11,6 +11,6 @@ class Documentos extends Model
      use Notifiable;
 
     protected $fillable = [
-        'id_empleado','ruta'
+        'nombre1','nombre','document'
     ];
 }

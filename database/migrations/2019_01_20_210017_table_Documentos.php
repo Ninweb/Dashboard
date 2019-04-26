@@ -16,10 +16,11 @@ class TableDocumentos extends Migration
         Schema::create('Documentos',function(Blueprint $table){
 
             $table->increments('id');
-            $table->integer('id_empleado')->unsigned();
-            $table->string('ruta');
+            $table->integer('nombre1');
+            $table->string('nombre');
+            $table->string('document');
 
-            $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade');
+            // $table->foreign('id_empleado')->references('id')->on('Empleados')->onDelete('cascade');
 
             $table->timestamps();
         });

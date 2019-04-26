@@ -21,29 +21,44 @@ class DocumentosController extends Controller
     	
         // $idEmpleado = DB::table('Empleados')->latest('id')->first();
 
-    	try{
-    		$this->validate($request, [
-	    	'ruta' => 'mimes:pdf', //only allow this type extension file.
-			]);
+    	// try{
+            $exploded = explode(',', $request->doc);
+            $decoded = base64_decode($exploded[1]);
 
+            // $this->validate($request, [
+	    	// 'document' => 'mimes:pdf', //only allow this type extension file.
+            // ]);
+            
+            if(str_contains($exploded[0], 'jpeg')) {
+                $extension = 'jpg';
+            } else {
+                $extension = 'png';
+            }
 
-            $ruta = time().'.'.$request->ruta->getClientOriginalExtension();
-            $request->ruta->move(public_path('documentos'), $ruta);
+            $document = str_random().'.'.$extension;
+            $path = public_path().'/'.$document;
+
+            file_put_contents($path, $decoded);
+            
+
+            // $document = time().'.'.$request->document->getClientOriginalExtension();
+            // $request->document->move(public_path('documentos'), $document);
 
             $upload = new Documentos([
                 // 'id_empleado'=>$idEmpleado,
-                'id_empleado'=>$request->input('id_empleado'),
-                'ruta'=>$ruta,
+                'nombre1'=>$request->input('nombre1'),
+                'nombre'=>$request->input('nombre'),
+                'document'=>$document,
             ]);
     		$upload->save();
     		return response()->json([
                 'status'=>'true',
                 'Perfecto Gracias'
             ],200);
-    	}catch (\Exception $e){
-            Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
-            return response('Algo salio mal',500);
-        }
+    	// }catch (\Exception $e){
+        //     Log::critical("Hubieron algunos problemas: {$e->getCode()},{$e->getLine()},{$e->getMessage()} ");
+        //     return response('Algo salio mal',500);
+        // }
 
         
     }
